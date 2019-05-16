@@ -85,7 +85,7 @@
 | --- | --- |
 | 没有设置 Timeout 参数的 Object.wait() 方法 | Object.notify() / Object.notifyAll() |
 | 没有设置 Timeout 参数的 Thread.join() 方法 | 被调用的线程执行完毕 |
-| LockSupport.park() 方法 | LockSupport.unpark(Thread) |
+| LockSupport.park() 方法(AQS底层实现也是用的L)| LockSupport.unpark(Thread) |
 
 ## 限期等待（Timed Waiting）
 
