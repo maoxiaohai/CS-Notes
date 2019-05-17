@@ -264,7 +264,8 @@ public void run() {
 
 ## InterruptedException
 
-通过调用一个线程的 interrupt() 来中断该线程，如果该线程处于阻塞、限期等待或者无限期等待状态，那么就会抛出 InterruptedException，从而提前结束该线程。但是不能中断 I/O 阻塞和 synchronized 锁阻塞。
+通过调用一个线程的 interrupt() 来中断该线程（只是将线程的中断标志位置位而已），如果该线程处于阻塞、限期等待或者无限期等待状态(比如Thread.sleep(),Thread.join()Thread.wait()等等)，那么就会抛出 InterruptedException，从而提前结束该线程。但是不能中断 I/O 阻塞和 synchronized 锁阻塞。如果线程不是在阻塞、期限等待或者无期限等待状态下，那么，就只是将该线程的中断标志位置位。被中断的线程中可以轮训标志位，查看是否有被要求中断，也可以完全不管是否中断，继续执行。
+
 
 对于以下代码，在 main() 中启动一个线程之后再中断它，由于线程中调用了 Thread.sleep() 方法，因此会抛出一个 InterruptedException，从而提前结束线程，不执行之后的语句。
 
