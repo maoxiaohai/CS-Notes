@@ -452,7 +452,7 @@ public synchronized void func () {
 
 它和同步代码块一样，作用于同一个对象。
 
-**3. 同步一个类** 
+**3. 同步一个类(类其实也只是Class类的一个对象)** 
 
 ```java
 public void func() {
@@ -562,6 +562,8 @@ synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非�
 **5. 锁绑定多个条件** 
 
 一个 ReentrantLock 可以同时绑定多个 Condition 对象。
+**6. 锁粒度不一样
+synchronized是同步代码块，且锁的撤回是要等临界代码执行结束。而Reentranllock是随时可以撤回的
 
 ## 使用选择
 
